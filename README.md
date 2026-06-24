@@ -91,8 +91,9 @@ Symptom: Intermittent tunnel drops occurred across cross-site boundaries, requir
 
 Resolution: Built strict, multi-protocol compound capture display filters within Wireshark to isolate underlying IPSec Encapsulating Security Payload (ESP) headers and WireGuard UDP transport blocks concurrently in a single pane:
 
-Plaintext
+```Plaintext
 udp.port == 51820 or esp
+```
 🏁 How to Verify & Inspect This Setup
 Domain Integrity: Execute gpupdate /force on any client endpoint; accept the logoff prompt Y to allow the Folder Redirection extension to safely build root paths on the Clustered File Server.
 
