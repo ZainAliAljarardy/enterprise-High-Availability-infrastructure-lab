@@ -70,14 +70,15 @@ A critical portion of this deployment involved diagnosing and neutralizing advan
 * **Resolution:** Engineered a persistent classless static route forcing the Windows kernel to push remote branch traffic through the correct infrastructure interface:
 ```cmd
   route -p add 192.168.110.0 mask 255.255.255.0 192.168.40.254
-
+```
 💥 Challenge 2: MTU Fragmentations & Switch Logging Overhead (%LINK-4-TOOBIG)
 Symptom: Core Cisco switches flooded console logs with %LINK-4-TOOBIG warnings during high-throughput backup replication cycles. This was caused by standard 1500-byte packets expanding to 1518+ bytes due to 802.1Q VLAN Tagging headers across Trunk links.
 
 Resolution: Performed deep validation of the Windows stack MTU limits using:
 
-PowerShell
+```PowerShell
 netsh interface ipv4 show subinterfaces
+```
 After confirming server metrics were locked at 1500 bytes to preserve iSCSI performance, console event aggregation logging rules were muted on standard switch ports to suppress non-critical warning overhead while maintaining line-rate packet forwarding.
 
 💥 Challenge 3: Cluster Resource Lockups (Online Pending Deadlock)
