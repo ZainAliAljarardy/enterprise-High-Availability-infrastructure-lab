@@ -9,31 +9,33 @@ The lab simulates a modern corporate enterprise workflow, focusing on continuous
 
 ## 🗺️ Network & Infrastructure Architecture
 
-                                  [ Remote Workers / Users ]
-                                                  │ (WireGuard VPN)
-                                                  ▼
-[ External Cisco Router ] ◄───────────────► [ OPNsense Firewall ] ◄──────────► [ WAC Gateway ]
-(Remote Branch Site)     (IPsec S-to-S)         │ (VLAN/Trunk/SVI)             (Remote Mgmt)
-├─── VLAN 4 (Server LAN & Clustering)
-└─── VLAN 10, 11, 12, 13 (Client LANs)
-│
-┌─────────────────────┴─────────────────────┐
-▼                                           ▼
-[ Cluster Node 1 ]                          [ Cluster Node 2 ]
-(Windows Server)                            (Windows Server)
-│                                           │
-├─────────────────────┬─────────────────────┤
-▼                     ▼                     ▼
-[ HA DHCP Server ]    [ HA File Server ]   [ Oracle SAN Storage ]
-(Folder Redirection)  (Central Shared LUNs)
-│
-▼
-[ Veeam Backup Server ]
-│
-┌──────────────┴──────────────┐
-▼                             ▼
-[ Internal Backup Repo ]         [ Linux Hardened Repo ]
-(Oracle SAN Storage)            (Offsite Ubuntu Server)
+                              [ Remote Workers / Users ]
+                                                           │
+                                                           │ (WireGuard VPN)
+                                                           ▼
+   [ External Cisco Router ] ◄──────────────────► [ OPNsense Firewall ] ◄──────────────────► [ WAC Gateway ]
+      (Remote Branch Site)       (IPsec S-to-S)            │ (VLAN/Trunk/SVI)               (Remote Mgmt)
+                                                           │
+                                                           ├─── VLAN 4 (Server LAN & Clustering)
+                                                           └─── VLAN 10, 11, 12, 13 (Client LANs)
+                                                           │
+                                   ┌───────────────────────┴───────────────────────┐
+                                   ▼                                               ▼
+                           [ Cluster Node 1 ]                              [ Cluster Node 2 ]
+                            (Windows Server)                                (Windows Server)
+                                   │                                               │
+                                   ├───────────────────────┬───────────────────────┤
+                                   ▼                       ▼                       ▼
+                           [ HA DHCP Server ]      [ HA File Server ]    [ Oracle SAN Storage ]
+                          (Folder Redirection)    (Central Shared LUNs)
+                                                           │
+                                                           ▼
+                                                [ Veeam Backup Server ]
+                                                           │
+                                            ┌──────────────┴──────────────┐
+                                            ▼                             ▼
+                                 [ Internal Backup Repo ]      [ Linux Hardened Repo ]
+                                   (Oracle SAN Storage)        (Offsite Ubuntu Server)
 
 
 ### 🏷️ Network Design Specifications
