@@ -9,34 +9,7 @@ The lab simulates a modern corporate enterprise workflow, focusing on continuous
 
 ## 🗺️ Network & Infrastructure Architecture
 
-                              [ Remote Workers / Users ]
-                                                           │
-                                                           │ (WireGuard VPN)
-                                                           ▼
-   [ External Cisco Router ] ◄──────────────────► [ OPNsense Firewall ] ◄──────────────────► [ WAC Gateway ]
-      (Remote Branch Site)       (IPsec S-to-S)            │ (VLAN/Trunk/SVI)               (Remote Mgmt)
-                                                           │
-                                                           ├─── VLAN 4 (Server LAN & Clustering)
-                                                           └─── VLAN 10, 11, 12, 13 (Client LANs)
-                                                           │
-                                   ┌───────────────────────┴───────────────────────┐
-                                   ▼                                               ▼
-                           [ Cluster Node 1 ]                              [ Cluster Node 2 ]
-                            (Windows Server)                                (Windows Server)
-                                   │                                               │
-                                   ├───────────────────────┬───────────────────────┤
-                                   ▼                       ▼                       ▼
-                           [ HA DHCP Server ]      [ HA File Server ]    [ Oracle SAN Storage ]
-                          (Folder Redirection)    (Central Shared LUNs)
-                                                           │
-                                                           ▼
-                                                [ Veeam Backup Server ]
-                                                           │
-                                            ┌──────────────┴──────────────┐
-                                            ▼                             ▼
-                                 [ Internal Backup Repo ]      [ Linux Hardened Repo ]
-                                   (Oracle SAN Storage)        (Offsite Ubuntu Server)
-
+![Network Topology](./Infrastructure.png)
 
 ### 🏷️ Network Design Specifications
 * **Core Switching:** Layer 2/3 architecture utilizing **VLANs**, **802.1Q Trunking**, and **Switched Virtual Interfaces (SVIs)** for optimal inter-VLAN routing and security boundary control via Core11.
@@ -94,8 +67,9 @@ A critical portion of this deployment involved diagnosing and neutralizing advan
 ### 💥 Challenge 1: Multi-Homed Routing & Metric Collisions
 * **Symptom:** A dual-homed user machine containing interfaces in both network `40.0` (`40.105`) and network `110.0` (`110.3`) failed to ping the remote branch network interface `110.1`. The Windows networking stack erroneously pushed packets through the network `110.0` gateway due to automatic metric calculations, causing packet drops.
 * **Resolution:** Engineered a persistent classless static route forcing the Windows kernel to push remote branch traffic through the correct infrastructure interface:
-  ```cmd
+```cmd
   route -p add 192.168.110.0 mask 255.255.255.0 192.168.40.254
+
 💥 Challenge 2: MTU Fragmentations & Switch Logging Overhead (%LINK-4-TOOBIG)
 Symptom: Core Cisco switches flooded console logs with %LINK-4-TOOBIG warnings during high-throughput backup replication cycles. This was caused by standard 1500-byte packets expanding to 1518+ bytes due to 802.1Q VLAN Tagging headers across Trunk links.
 
