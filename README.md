@@ -68,7 +68,8 @@ A critical portion of this deployment involved diagnosing and neutralizing advan
 ### 💥 Challenge 1: Multi-Homed Routing & Metric Collisions
 * **Symptom:** A dual-homed user machine containing interfaces in both network `40.0` (`40.105`) and network `110.0` (`110.3`) failed to ping the remote branch network interface `110.1`. The Windows networking stack erroneously pushed packets through the network `110.0` gateway due to automatic metric calculations, causing packet drops.
 * **Resolution:** Engineered a persistent classless static route forcing the Windows kernel to push remote branch traffic through the correct infrastructure interface:
-```cmd
+```
+cmd
   route -p add 192.168.110.0 mask 255.255.255.0 192.168.40.254
 ```
 💥 Challenge 2: MTU Fragmentations & Switch Logging Overhead (%LINK-4-TOOBIG)
