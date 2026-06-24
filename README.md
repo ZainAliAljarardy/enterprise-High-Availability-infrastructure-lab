@@ -48,6 +48,7 @@ The lab simulates a modern corporate enterprise workflow, focusing on continuous
 | Network Segment / Service | IP Address / Subnet | Interface / Gateway Reference | Host Protocol Rules / Role |
 | :--- | :--- | :--- | :--- |
 | **Server Infrastructure LAN (VLAN 4)** | `192.168.40.0/24` | VLAN 4 SVI Gateway / Core11 | Core AD, Node1, Node2, Storage, Veeam, WAC |
+| **Clustered File-Server for genneral use Virtual IP** | `192.168.40.115` | Dynamic Virtual Pointer | High-Availability File Server IP Assignment |
 | **Clustered DHCP Virtual IP** | `192.168.40.16` | Dynamic Virtual Pointer | High-Availability DHCP IP Assignment |
 | **Marketing Network (VLAN 10)** | `192.168.100.0/24` | VLAN 10 SVI / Core11 | End-user Nodes & Workstations (Marketer) |
 | **Finance Network (VLAN 11)** | `192.168.110.0/24` | VLAN 11 SVI / Core11 | End-user Nodes & Workstations (Finance) |
