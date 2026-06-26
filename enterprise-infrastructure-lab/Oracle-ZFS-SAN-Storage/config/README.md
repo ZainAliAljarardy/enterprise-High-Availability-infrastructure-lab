@@ -12,7 +12,7 @@ To establish structural data integrity, virtual storage capacity was distributed
 * **`Storage-Backup-Pool`**: Configured with a **Double parity** layout to serve as the high-capacity secondary replication site.
 * **`Storage-DFS-Pool`**: Deployed as a high-speed **Striped** infrastructure framework for volatile file distribution tasks.
 
-![Oracle ZFS Storage Pools Setup](../screenshots/Pools Oracle ZFS.png)
+![Oracle ZFS Storage Pools Setup](../screenshots/Pools-Oracle-ZFS.png)
 
 ---
 
@@ -25,7 +25,7 @@ To enforce cryptographic access control boundaries over the SAN network fabric, 
    * **Node2:** `iqn.1991-05.com.microsoft:node2.zfood.local`
 2. **`init-backup-repo` Group**: Maps external replication points directly into target arrays (`veeam_server` & `ubuntu`).
 
-![Oracle ZFS iSCSI Initiators Definition](../screenshots/Pools Oracle ZFS.png)
+![Oracle ZFS iSCSI Initiators Definition](../screenshots/Initiators-Oracel-ZFS.png)
 
 ---
 
@@ -37,12 +37,12 @@ Two dedicated logical volumes were provisioned under the primary operations proj
 * **`LUN_Quorum`**: Deployed with a precise `1G` allocation footprint to manage Failover Clustering state voting dynamics.
 * **`LUN_Users_Storage`**: A massive `3.93T` high-performance block space engineered to host decentralized production folders.
 
-![Users Storage LUN Allocations](./LUNs%20Storage-Users-Pool.png)
+![Users Storage LUN Allocations](../screenshots/LUNs-Storage-Users-Pool.png)
 
 ### 2. Storage Backup Pool Assignment
 * **`LUN-backup`**: Formatted with a `4.69T` structural volume density to support immutable copy blocks from Veeam replication workflows.
 
-![Backup Storage LUN Allocation](./LUNs%20Storage-Backup-Pool.png)
+![Backup Storage LUN Allocation](../screenshots/LUNs-Storage-Backup-Pool.png)
 
 ---
 
@@ -53,4 +53,4 @@ The appliance tracking cockpit monitors critical system behaviors, highlighting 
 * **Hardware Lifecycle**: Active uptime verification confirming `Up 3d 02:24` core continuity.
 * **Active Protocol Daemons**: Real-time traffic inspection for active **iSCSI** and **SMB2** operations across host nodes.
 
-![Oracle ZFS Analytics Dashboard](./Dashboard%20Oracle%20ZFS.jpg)
+![Oracle ZFS Analytics Dashboard](../screenshots/Dashboard-Oracle-ZFS.png)
