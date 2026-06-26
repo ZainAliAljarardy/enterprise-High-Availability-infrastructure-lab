@@ -23,7 +23,7 @@ To initialize cluster communication, shared blocks from the Oracle ZFS SAN stora
 2. Specified the dedicated Oracle ZFS SAN IP address inside the **Target Portal** field.
 3. Discovered and established a persistent connection status to the allocated shared logical volumes.
 
-![iSCSI Initiator Connection Target](../screenshots/iSCSI-initiator.jpg)
+![iSCSI Initiator Connection Target](../screenshots/iSCSI-initiator.png)
 
 ---
 
@@ -44,7 +44,7 @@ Prior to building the live framework, the environment must pass structural suppo
 * Added the authenticated target nodes: `Node1.zfood.local` and `Node2.zfood.local`.
 * Executed comprehensive evaluation layers verifying BIOS information compliance, network metrics, and disk path readiness.
 
-![Cluster Validation Summary](./validate-config-wizard.png)
+![Cluster Validation Summary](../screenshots/validate-config-wizard.png)
 
 ---
 
@@ -56,7 +56,7 @@ Once validation logs passed with strict compliance parameters, the structural cl
 * Assigned the dedicated cluster management Virtual IP: **`192.168.40.110`**.
 * Configured the operational voting quorum under the **Node and Disk Majority (Cluster Disk 3)** witness allocation.
 
-![Cluster Generation Verification](./Create-Cluster.png)
+![Cluster Generation Verification](../screenshots/Create-Cluster.png)
 
 ---
 
@@ -66,7 +66,15 @@ To build a continuous file distribution point resilient to node failovers, the F
 * Selected **Configure Role** from the cluster action layout to instantiate the **High Availability Wizard**.
 * Designated **File Server for general use** as the primary high-availability operational layout.
 * Assigned the network interface role identifier as **`FS-Users`** bound to the static VIP Address **`192.168.40.115`**.
+  
+ ![Clustered File Server Role Deployment](../screenshots/add-fileServer-Role.png)
+
+
 * Provisioned a continuous SMB share target directory mapped to the shared SAN storage volume (`E:\Shares\User_Storage`).
+
+![Choose a shared Folder for File Server Role](../screenshots/Add-FileShare_For-FileServer-Role.png)
+
+
 
 ---
 
@@ -79,4 +87,4 @@ To provide non-disruptive dynamic IP address allocation across operational corpo
 
 > 💡 **High Availability Note:** This configuration ensures that even if one node crashes, the secondary node takes control of the active leases database seamlessly without dropping client connectivity.
 
-![Clustered DHCP Server Role Deployment](./add_dhcp_role.png)
+![Clustered DHCP Server Role Deployment](../screenshots/add_dhcp_role.png)
