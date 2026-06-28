@@ -72,16 +72,16 @@ The unified inventory workspace catalogs the live verification paths of the inte
 * Launched the **Veeam Explorer for Microsoft Active Directory** to verify recovery capabilities without taking the DC offline.
 * Successfully restored specific tombstoned user accounts and OUs, validating database schema comparison points.
 
-![Granular Object Restore Proof](../screenshots/success-restore-object-from-DC.jpg)
+![Granular Object Restore Proof](../screenshots/success-restore-object-from-DC.png)
 
 ### 3. High Availability Cluster Share Backup Task
 * Engineered a secondary backup routine targeting the highly available cluster volumes (`LUN_Users_Storage`) originating from the Oracle SAN ZFS array.
 * The task successfully cloned active user production volumes with transactional consistency.
 
-![Failover Cluster Storage Backup Success](../screenshots/success-backup-File-Server-Cluster.jpg)
+![Failover Cluster Storage Backup Success](../screenshots/success-backup-File-Server-Cluster.png)
 
 ### 4. Immutable Encrypted Transfer Validation
 * Verified the secure, encrypted transmission of data blocks to the remote **Linux Hardened Repo**.
 * The tracking layout logs state compliance parameters, confirming complete data immutability locks.
 
-![Encrypted Immutability Job Run Status](../screenshots/success-transfer-data-backup-to-external-linux-hardened-repo-encrypted.jpg)
+![Encrypted Immutability Job Run Status](../screenshots/success-transfer-data-backup-to-external-linux-hardened-repo-encrypted.png)
