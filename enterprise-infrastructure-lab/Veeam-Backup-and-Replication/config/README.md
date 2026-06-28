@@ -25,7 +25,7 @@ To defend the architecture against ransomware attacks, a hardened repository was
 * Designated a secure, isolated directory partition (`/mnt/hardened_repo`) explicitly to act as the primary storage repository.
 * Enabled **Immutability policies** along with data encryption constraints to prevent unauthorized modifications or deletions of active backup streams.
 
-![Linux Server Added to Infrastructure](../screenshots/success-added-linux-server-as-backup%20server.jpg)
+![Linux Server Added to Infrastructure](../screenshots/success-added-linux-server-as-backup%20server.png)
 ![Configuring Hardened Directory Path](../screenshots/success-determine-folder-on-linux%20server-to-be-repo.png)
 
 ---
