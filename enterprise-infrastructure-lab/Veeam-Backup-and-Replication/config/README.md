@@ -50,9 +50,13 @@ The view below confirms all provisioned storage points, highlighting the coexist
 ![Veeam Infrastructure Repositories Inventory](./added-devices-as-backup-repo.png)
 
 ### 2. Inventory Nodes Overview
-The unified inventory workspace catalogs the live verification paths of the integrated infrastructure cluster endpoints:
+The unified inventory workspace catalogs the live verification paths of the integrated infrastructure cluster endpoints and identity nodes:
 
+#### Failover Cluster Infrastructure Node:
 ![Veeam Managed Virtual Infrastructure Catalog](./added-cluster-to-Inventory.png)
+
+#### Active Directory Domain Controller Node:
+![Veeam Managed Active Directory Inventory](./added-DC-to-Inventory.png)
 
 ---
 
