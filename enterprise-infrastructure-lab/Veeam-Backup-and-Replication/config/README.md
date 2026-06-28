@@ -17,7 +17,7 @@ This section documents the end-to-end deployment of **Veeam Backup & Replication
 * Integrated the **Oracle ZFS SAN Storage Volume** (`LUN-backup`) which was mounted locally to the Veeam server via iSCSI.
 * Assigned this block volume as a standard local backup repository to serve as the landing zone for immediate operational restores.
 
-![SAN Storage Added as Local Repository](./success-added-disk_SAN_Storage_that_mount_by_veeam-server.png)
+![SAN Storage Added as Local Repository](../screenshots/success-added-disk_SAN_Storage_that_mount_by_veeam-server.png)
 
 ### 2. Provisioning the External Linux Hardened Repository (Immutability Protection)
 To defend the architecture against ransomware attacks, a hardened repository was established on an isolated Linux instance.
@@ -25,8 +25,8 @@ To defend the architecture against ransomware attacks, a hardened repository was
 * Designated a secure, isolated directory partition (`/mnt/hardened_repo`) explicitly to act as the primary storage repository.
 * Enabled **Immutability policies** along with data encryption constraints to prevent unauthorized modifications or deletions of active backup streams.
 
-![Linux Server Added to Infrastructure](./success-added-linux-server-as-backup%20server.jpg)
-![Configuring Hardened Directory Path](./success-determine-folder-on-linux%20server-to-be-repo.png)
+![Linux Server Added to Infrastructure](../screenshots/success-added-linux-server-as-backup%20server.jpg)
+![Configuring Hardened Directory Path](../screenshots/success-determine-folder-on-linux%20server-to-be-repo.png)
 
 ---
 
@@ -47,16 +47,16 @@ To safeguard compute instances, both the single identity server and the highly a
 ### 1. Centralized Backup Repositories Catalog
 The view below confirms all provisioned storage points, highlighting the coexistence of the local storage volumes alongside the immutable Linux Hardened repository:
 
-![Veeam Infrastructure Repositories Inventory](./added-devices-as-backup-repo.png)
+![Veeam Infrastructure Repositories Inventory](../screenshots/added-devices-as-backup-repo.png)
 
 ### 2. Inventory Nodes Overview
 The unified inventory workspace catalogs the live verification paths of the integrated infrastructure cluster endpoints and identity nodes:
 
 #### Failover Cluster Infrastructure Node:
-![Veeam Managed Virtual Infrastructure Catalog](./added-cluster-to-Inventory.png)
+![Veeam Managed Virtual Infrastructure Catalog](../screenshots/added-cluster-to-Inventory.png)
 
 #### Active Directory Domain Controller Node:
-![Veeam Managed Active Directory Inventory](./added-DC-to-Inventory.png)
+![Veeam Managed Active Directory Inventory](../screenshots/added-DC-to-Inventory.png)
 
 ---
 
@@ -66,22 +66,22 @@ The unified inventory workspace catalogs the live verification paths of the inte
 * Configured a full image-level backup task targeting the primary Domain Controller. 
 * The job terminated with absolute **Success status**, mapping the VM data blocks securely into the storage targets.
 
-![Active Directory DC Backup Success](./success-backup-DC.png)
+![Active Directory DC Backup Success](../screenshots/success-backup-DC.png)
 
 ### 2. Item-Level Active Directory Granular Object Restore
 * Launched the **Veeam Explorer for Microsoft Active Directory** to verify recovery capabilities without taking the DC offline.
 * Successfully restored specific tombstoned user accounts and OUs, validating database schema comparison points.
 
-![Granular Object Restore Proof](./success-restore-object-from-DC.jpg)
+![Granular Object Restore Proof](../screenshots/success-restore-object-from-DC.jpg)
 
 ### 3. High Availability Cluster Share Backup Task
 * Engineered a secondary backup routine targeting the highly available cluster volumes (`LUN_Users_Storage`) originating from the Oracle SAN ZFS array.
 * The task successfully cloned active user production volumes with transactional consistency.
 
-![Failover Cluster Storage Backup Success](./success-backup-File-Server-Cluster.jpg)
+![Failover Cluster Storage Backup Success](../screenshots/success-backup-File-Server-Cluster.jpg)
 
 ### 4. Immutable Encrypted Transfer Validation
 * Verified the secure, encrypted transmission of data blocks to the remote **Linux Hardened Repo**.
 * The tracking layout logs state compliance parameters, confirming complete data immutability locks.
 
-![Encrypted Immutability Job Run Status](./success-transfer-data-backup-to-external-linux-hardened-repo-encrypted.jpg)
+![Encrypted Immutability Job Run Status](../screenshots/success-transfer-data-backup-to-external-linux-hardened-repo-encrypted.jpg)
