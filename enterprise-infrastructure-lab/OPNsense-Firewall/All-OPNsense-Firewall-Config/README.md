@@ -42,7 +42,7 @@ To recover or migrate this structural deployment state to a fresh or secondary O
 2. The firewall daemon will automatically cross-reference the structural integrity of the uploaded backup file.
 3. The firewall will trigger an automated programmatic **System Reboot** sequence to initialize all software daemons, routing targets, and cryptographic services cleanly.
 
-![OPNsense Configuration Management Console](../screenshots/image_ca4b03.png)
+![OPNsense Configuration Management Console](../screenshots/all-config-on-OPNsense.png)
 
 ---
 
