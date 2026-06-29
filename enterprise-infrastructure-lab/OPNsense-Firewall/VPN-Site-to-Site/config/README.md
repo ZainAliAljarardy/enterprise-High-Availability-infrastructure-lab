@@ -19,20 +19,20 @@ This section documents the engineering deployment of a secure, hardware-accelera
 1. Navigated to **VPN > IPsec > Connections** and initiated a **New Connection** deployment.
 2. Configured the **General Settings** layer to implement **IKEv2** connection hosting and enabled administrative tracking.
 
-![OPNsense IPsec General Configurations](./VPN-IPsec-general-settings.png)
+![OPNsense IPsec General Configurations](../screenshots/VPN-IPsec-general-settings.png)
 
 3. Defined **Local Authentication** constraints, explicitly assigning the node identifier mapping to the local WAN routing path.
 
-![OPNsense Local Authentication Parameters](./VPN-IPsec-Edit-Local.png)
+![OPNsense Local Authentication Parameters](../screenshots/VPN-IPsec-Edit-Local.png)
 
 4. Mapped the **Remote Authentication** gateway boundaries, specifying the target destination point corresponding to the offsite router interface.
 
-![OPNsense Remote Authentication Parameters](./VPN-IPsec-Edit-Remote.png)
+![OPNsense Remote Authentication Parameters](../screenshots/VPN-IPsec-Edit-Remote.png)
 
 5. Configured the **Children (Phase 2)** policies, establishing structural encryption selectors to securely link the local subnet block (`192.168.40.0/24`) directly to the remote repository block (`192.168.60.0/24`).
 
-![OPNsense Crypto Child Selection Step 1](./VPN-IPsec-Edit-Child-1.png)
-![OPNsense Crypto Child Selection Step 2](./VPN-IPsec-Edit-Child-2.png)
+![OPNsense Crypto Child Selection Step 1](../screenshots/VPN-IPsec-Edit-Child-1.png)
+![OPNsense Crypto Child Selection Step 2](../screenshots/VPN-IPsec-Edit-Child-2.png)
 
 ---
 
@@ -40,7 +40,7 @@ This section documents the engineering deployment of a secure, hardware-accelera
 1. Navigated to **VPN > IPsec > Pre-Shared Keys** and deployed a new security configuration entry.
 2. Bound the unique secret passphrase identifier (`crypto_zain`) directly against the authenticated target gateway string.
 
-![OPNsense Pre-Shared Key Entry](./VPN-IPsec-Edit-Pre-shared-key.png)
+![OPNsense Pre-Shared Key Entry](../screenshots/VPN-IPsec-Edit-Pre-shared-key.png)
 
 ---
 
@@ -132,4 +132,4 @@ To audit connection state compliance, cryptographic synchronization logs are tra
 * **Tunnel State:** Confirmed active established pathways (**`ESTABLISHED`**) running securely over IKEv2.
 * **Active Child Security Associations:** Dynamic confirmation tracking payload delivery across security boundaries.
 
-![OPNsense IPsec Live Status Overview](./VPN-IPsec-Status-Overview.png)
+![OPNsense IPsec Live Status Overview](../screenshots/VPN-IPsec-Status-Overview.png)
