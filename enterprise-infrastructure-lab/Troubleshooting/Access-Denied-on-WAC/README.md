@@ -13,7 +13,7 @@ When attempting to add a new server (such as `dc.zfood.local`) inside the **Wind
 This issue occurs because the **Windows Admin Center (WAC)** was installed or is being run under a **Local Account** instead of a **Domain Admin Account**. As a result, the application lacks the necessary Kerberos or NTLM elevation privileges to query, manage, and authenticate against target infrastructure servers within the Active Directory domain environment.
 
 ### Screenshot
-![Windows Admin Center Access Denied Error](error-becouse-the%20WAC-have-been-download-by-local-account-not-domain-admin-account.png)
+![Windows Admin Center Access Denied Error](error-becouse-the-WAC-have-been-download-by-local-account-not-domain-admin-account.png)
 
 ---
 
