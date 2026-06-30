@@ -12,7 +12,7 @@ The architecture bridges directory services and network security with high-avail
 * **Storage Allocation:** Disk space is provisioned from dedicated LUNs on the **Oracle ZFS SAN Storage**, mounted directly onto the cluster nodes managed within the **Windows-Failover-Cluster** setup.
 * **Folder Redirection:** Engineered a Group Policy Object to seamlessly redirect critical user shell paths (such as *Desktop* and *Documents*) from local workstation profiles onto the resilient clustered SAN shares.
 
-![Folder Redirection GPO Configuration](../screenshots/Folder-Redirect_GPO-for-FS-Users-on-DC.jpg)
+![Folder Redirection GPO Configuration](../screenshots/Folder-Redirect_GPO-for-FS-Users-on-DC.png)
 
 ---
 
@@ -20,7 +20,7 @@ The architecture bridges directory services and network security with high-avail
 * **Automated Drive Mapping:** Configured GPO Drive Preferences to dynamically mount corporate shared repositories at user logon based on their active group identity.
 * **Path Enforcement:** Drives are mapped cleanly using secure UNC paths pointing back to the central file resource structure.
 
-![GPO Drive Mapping Configuration](../screenshots/MAP-Drive-for-FS-Users-on-DC.jpg)
+![GPO Drive Mapping Configuration](../screenshots/MAP-Drive-for-FS-Users-on-DC.png)
 
 ---
 
@@ -49,7 +49,7 @@ By limiting the `users-storage` group to **"This folder only"** and assigning **
 2. The user is instantly flagged as the owner of that subfolders, granting them absolute rights (**Full Control**) over their redirected files.
 3. Other members of the `users-storage` group are completely blocked from reading, browsing, or accessing their colleagues' data, ensuring strict multi-tenant data privacy across the enterprise.
 
-![Advanced NTFS Permissions for users-storage](../screenshots/add-security-premissin-for-Users-Storage.jpg)
+![Advanced NTFS Permissions for users-storage](../screenshots/add-security-premissin-for-Users-Storage.png)
 
 ---
 
