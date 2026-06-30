@@ -14,10 +14,7 @@ This block occurs due to strict security access controls (POSIX permissions) con
 
 ### Screenshots
 * **The Error State (Veeam Wizard Permission Denied Drop):**
-![Veeam Deployment Permission Error](premision%20error%20when%20add%20new%20repo%20on%20veeam%20.png)
-
-* **The Resolution State (Linux Directory Permissions Elevation):**
-![Linux Bash Permissions Remediation](premision%20error%20when%20add%20new%20repo%20on%20veeam%20_resolve.png)
+![Veeam Deployment Permission Error](premision-error-when-add-new-repo-on-veeam.png)
 
 ---
 
